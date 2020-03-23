@@ -10,10 +10,12 @@
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 
-<select id="city">
-  <option value="pune">Pune</option>
+<select id="city" onchange="sorting()">
+  <option>select city</option>
+  <option value="pune">pune</option>
   <option value="satara">satara</option>
   <option value="sangali">sangali</option>
+  <option value="sangali">Nagpur</option>
 </select>
 
 
@@ -28,6 +30,11 @@
     <td>Monika</td>
     <td>pune</td>
     <td>4576898654</td>
+  </tr>
+  <tr>
+    <td>Ishika</td>
+    <td>pune</td>
+    <td>4576898611</td>
   </tr>
   <tr>
     <td>Shrikant</td>
@@ -78,6 +85,26 @@ function myFunction() {
 
 
 </script>
+
+<script>
+  function sorting() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("city");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[1];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
+  </script>
 
 </body>
 </html>

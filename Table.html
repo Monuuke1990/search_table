@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="Table.css" rel="stylesheet">
+</head>
+<body>
+
+<h2>My Customers</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+<select id="city">
+  <option value="pune">Pune</option>
+  <option value="satara">satara</option>
+  <option value="sangali">sangali</option>
+</select>
+
+
+
+<table id="myTable">
+  <tr class="header">
+    <th >Name</th>
+    <th >City</th>
+    <th >phone number</th>
+  </tr>
+  <tr>
+    <td>Monika</td>
+    <td>pune</td>
+    <td>4576898654</td>
+  </tr>
+  <tr>
+    <td>Shrikant</td>
+    <td>satara</td>
+    <td>87654987654</td>
+  </tr>
+  <tr>
+    <td>Sanjay</td>
+    <td>sangali</td>
+    <td>3452748900</td>
+  </tr>
+  <tr>
+    <td>Sanjay</td>
+    <td>Nagpur</td>
+    <td>5464746837</td>
+  </tr>
+
+</table>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  console.log(tr);
+  for (i = 1; i < tr.length; i++) {
+    // Hide the row initially.
+    tr[i].style.display = "none";
+
+    td = tr[i].getElementsByTagName("td");
+    for (var j = 0; j < td.length; j++) {
+      cell = tr[i].getElementsByTagName("td")[j];
+      if (cell) {
+        if (cell.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+          break;
+        } 
+      }
+    }
+}
+
+}
+
+
+
+
+</script>
+
+</body>
+</html>

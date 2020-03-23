@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>javascript</title>
+</head>
+
+<body>
+    <h1>My first javascript project</h1>
+
+
+    <h1>reverse number</h1>
+    Enter any Number: <input id="no_input">
+<button onclick="palin()">Check</button></br></br>
+    <h1>swaping </h1>
+
+    Value of a: <input id="first">
+    Value of b: <input id="second"></br></br>
+    <button onclick="swap()">Swap</button></br></br>
+    Value of a: <input id="ans1">
+    Value of b: <input id="ans2">
+
+<hr></hr>
+<h1>ood even</h1>
+odd_even <input id="even_odd" >
+<button onclick="odd_even()">click</button>
+<hr><br>
+<h1>factorial</h1>
+Enter Num: <input id="num">
+<button onclick="show()">Factorial</button>
+<input id="answer">
+<hr><br>
+
+    <script>
+    var name = "monika";
+    document.write(name , "" + "<br>")
+
+    var a=10;
+    var b = 20;
+    var c= a+b;
+    document.write("value of a = "+ a +"<br/> " + "value of b = " + b + "<br/>");
+    document.write("Total sum = " + c + "<br/>")
+
+    //var emp = ["monika","vishal","avi"]
+
+    var emp = new Array ("monika","vishal","avi");
+    for(i=0;i<emp.length;i++){
+        document.write(emp[i]+"<br>");
+    }
+    // console.log(emp);
+    // document.write(emp);
+
+    
+    </script>
+
+<script>
+
+document.write("<b>Using while loops </b><br />");
+		var i = 0, j = 1, k;
+		document.write("Fibonacci series less than 10<br />");
+		while(i<10)
+		{
+			document.write(i + "<br />");
+			k = i+j;
+			i = j;
+			j = k;
+		}
+
+function swap (){
+    var a,b, c;
+    var a= (document.getElementById("first").value);
+    var b= (document.getElementById("second").value);
+    console.log(b);
+    c=a;
+    a=b;
+    b=c;
+    document.getElementById("ans1").value=a;
+    document.getElementById("ans2").value=b;
+
+}
+function odd_even(){
+    var n= (document.getElementById("even_odd").value)
+    if(n%2==0){
+        alert("odd number");
+    }
+    else{
+        alert("even number");
+    }
+}
+//factorial
+
+function show(){
+
+var i, no, fact;
+fact=1;
+no=Number(document.getElementById("num").value);
+for(i=1; i<=no; i++)  
+{
+fact= fact*i;
+}  
+document.getElementById("answer").value= fact;
+}
+
+function palin()
+{
+var a,no,b,temp=0;
+
+no=Number(document.getElementById("no_input").value);
+
+b=no;
+while(no>0)
+{
+a=no%10;
+no=parseInt(no/10);
+temp=temp*10+a;
+}
+alert(temp);
+}
+</script>
+
+
+
+</body>
+
+</html>
